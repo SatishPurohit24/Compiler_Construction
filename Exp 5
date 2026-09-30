@@ -1,0 +1,10 @@
+lab-03-15@lab-03-15-OptiPlex-3280-AIO:~$ vim case-268.l
+lab-03-15@lab-03-15-OptiPlex-3280-AIO:~$ lex case-268.l
+lab-03-15@lab-03-15-OptiPlex-3280-AIO:~$ gcc lex.yy.c -ll -o case-268
+lab-03-15@lab-03-15-OptiPlex-3280-AIO:~$ ./case-268
+Enter a string: hELLO wORLD
+Hello World
+^C
+lab-03-15@lab-03-15-OptiPlex-3280-AIO:~$ ./case-268
+Enter a string: MY NAME IS SATISH
+my name is satish
