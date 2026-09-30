@@ -1,0 +1,84 @@
+for l
+
+%{
+#include "y.tab.h"
+%}
+
+%%
+
+"for"           { return FOR; }
+"++"            { return INC; }
+"--"            { return DEC; }
+
+[a-zA-Z][a-zA-Z0-9]*   { return ID; }
+[0-9]+                 { return NUM; }
+
+"="             { return '='; }
+"<"             { return '<'; }
+">"             { return '>'; }
+";"             { return ';'; }
+"("             { return '('; }
+")"             { return ')'; }
+
+[ \t\n]         ;
+
+.               { return yytext[0]; }
+
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+
+for y
+%{
+#include <stdio.h>
+
+int yylex();
+void yyerror(char *s);
+%}
+
+%token FOR ID NUM INC DEC
+
+%%
+
+program:
+        for_loop
+        {
+            printf("Valid for loop\n");
+        }
+        ;
+
+for_loop:
+        FOR '(' initialization ';' condition ';' increment ')'
+        ;
+
+initialization:
+        ID '=' NUM
+        ;
+
+condition:
+        ID '<' NUM
+        | ID '>' NUM
+        ;
+
+increment:
+        ID INC
+        | ID DEC
+        ;
+
+%%
+
+void yyerror(char *s)
+{
+    printf("Invalid for loop\n");
+}
+
+int main()
+{
+    printf("Enter a for loop:\n");
+    yyparse();
+    return 0;
+}
