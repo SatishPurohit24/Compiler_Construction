@@ -1,28 +1,18 @@
-# Experiment 1 — Number word recognizer
+# Experiment 2 — Lexical Analyzer
 
 ## Terminal session
 ```
-lab-03-30@lab-03-30-OptiPlex-3280-AIO:~$ vim 1268.l
-lab-03-30@lab-03-30-OptiPlex-3280-AIO:~$ lex 1268.l
-lab-03-30@lab-03-30-OptiPlex-3280-AIO:~$ cc lex.yy.c -ll
-lab-03-30@lab-03-30-OptiPlex-3280-AIO:~$ ./a.out
-one
-1
-Three
-3
-Eight
-8
-two
-2
-Seven
-7
-four
-4
-FIVE
-5
-Six
-6
-NINE
-9
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$ vim analyzer1268.l
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$ vim input1268.c
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$ lex analyzer1268.l
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$ gcc lex.yy.c -o analyzer1268
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$ ./analyzer1268 input1268.c
+=== Lexical Analysis Results ===
+Lines:        8
+Spaces:       13
+Words:        12
+Keywords:     4
+Identifiers: 5
+Comments:     0
+sit-lab2-pc30@sit-lab2-pc30-OptiPlex-3280-AIO:~$
 ```
-
